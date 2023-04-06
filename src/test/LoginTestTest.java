@@ -29,7 +29,8 @@ public class LoginTestTest {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver_win32\\chromedriver.exe");
+    //System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver_win32\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver_win32/chromedriver.exe");
 
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--remote-allow-origins=*");
@@ -57,8 +58,6 @@ public class LoginTestTest {
     // 5 | click | id=current-password | 
     driver.findElement(By.id("current-password")).click();
     // 6 | type | id=current-password | Sosiska170808
-    driver.findElement(By.id("current-password")).sendKeys("Sosiska170808");
-    // 7 | type | id=current-password | Sosiska170808
     driver.findElement(By.id("current-password")).sendKeys("Sosiska170808");
     // 8 | click | css=.mr-2 > .block | 
     driver.findElement(By.cssSelector(".mr-2 > .block")).click();

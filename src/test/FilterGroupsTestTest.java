@@ -29,7 +29,7 @@ public class FilterGroupsTestTest {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver_win32\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver_win32/chromedriver.exe");
 
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--remote-allow-origins=*");
@@ -48,39 +48,117 @@ public class FilterGroupsTestTest {
     // Step # | name | target | value
     // 1 | open | / | 
     driver.get("https://www.meetup.com/");
-    // 2 | setWindowSize | 1054x800 | 
-    driver.manage().window().setSize(new Dimension(1054, 800));
-    // 3 | runScript | window.scrollTo(0,990.4000244140625) | 
-    js.executeScript("window.scrollTo(0,990.4000244140625)");
+    // 2 | setWindowSize | 1072x693 | 
+    driver.manage().window().setSize(new Dimension(1072, 693));
+    // 3 | runScript | window.scrollTo(0,828) | 
+    js.executeScript("window.scrollTo(0,828)");
     // 4 | click | id=search-keyword-input | 
     driver.findElement(By.id("search-keyword-input")).click();
-    // 5 | type | id=search-keyword-input | tennis
-    driver.findElement(By.id("search-keyword-input")).sendKeys("tennis");
+    // 5 | type | id=search-keyword-input | games
+    driver.findElement(By.id("search-keyword-input")).sendKeys("games");
     // 6 | click | id=location-typeahead-searchLocation | 
     driver.findElement(By.id("location-typeahead-searchLocation")).click();
-    // 7 | type | id=location-typeahead-searchLocation | New York
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("New York");
-    // 8 | sendKeys | id=location-typeahead-searchLocation | ${KEY_ENTER}
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys(Keys.ENTER);
+    // 7 | type | id=location-typeahead-searchLocation | new york
+    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("new york");
+    // 8 | click | css=.h-12 | 
+    driver.findElement(By.cssSelector(".h-12")).click();
     // 9 | click | id=find-groups-tab | 
     driver.findElement(By.id("find-groups-tab")).click();
-    // 10 | click | id=event-distance-filter-drop-down | 
-    driver.findElement(By.id("event-distance-filter-drop-down")).click();
-    // 11 | click | id=event-distance-filter-drop-down | 
-    driver.findElement(By.id("event-distance-filter-drop-down")).click();
-    // 12 | click | id=event-distance-50-miles-option | 
-    driver.findElement(By.id("event-distance-50-miles-option")).click();
-    // 13 | click | id=category-filter-drop-down | 
-    driver.findElement(By.id("category-filter-drop-down")).click();
-    // 14 | click | id=metacategory-community-environment-option | 
-    driver.findElement(By.id("metacategory-community-environment-option")).click();
-    // 15 | mouseOver | id=group-card-in-search-results | 
+    // 10 | mouseOver | id=event-distance-filter-drop-down | 
     {
-      WebElement element = driver.findElement(By.id("group-card-in-search-results"));
+      WebElement element = driver.findElement(By.id("event-distance-filter-drop-down"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 16 | click | css=.gl\3Awhitespace-nowrap | 
+    // 11 | click | id=event-distance-filter-drop-down | 
+    driver.findElement(By.id("event-distance-filter-drop-down")).click();
+    // 12 | mouseOut | id=event-distance-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 13 | click | id=event-distance-25-miles-option | 
+    driver.findElement(By.id("event-distance-25-miles-option")).click();
+    // 14 | mouseOver | id=event-distance-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.id("event-distance-filter-drop-down"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 15 | mouseOut | id=event-distance-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 16 | click | id=event-distance-filter-drop-down | 
+    driver.findElement(By.id("event-distance-filter-drop-down")).click();
+    // 17 | click | id=event-distance-50-miles-option | 
+    driver.findElement(By.id("event-distance-50-miles-option")).click();
+    // 18 | click | id=category-filter-drop-down | 
+    driver.findElement(By.id("category-filter-drop-down")).click();
+    // 19 | click | id=metacategory-games-option | 
+    driver.findElement(By.id("metacategory-games-option")).click();
+    // 20 | mouseOver | css=div:nth-child(1) > .text-viridian | 
+    {
+      WebElement element = driver.findElement(By.cssSelector("div:nth-child(1) > .text-viridian"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 21 | mouseOut | css=div:nth-child(1) > .text-viridian | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 22 | mouseOver | css=.gl\3Awhitespace-nowrap | 
+    {
+      WebElement element = driver.findElement(By.cssSelector(".gl\\3Awhitespace-nowrap"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 23 | click | css=.gl\3Awhitespace-nowrap | 
     driver.findElement(By.cssSelector(".gl\\3Awhitespace-nowrap")).click();
+    // 24 | mouseOut | css=.gl\3Awhitespace-nowrap | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 25 | click | id=event-distance-filter-drop-down | 
+    driver.findElement(By.id("event-distance-filter-drop-down")).click();
+    // 26 | click | id=event-distance-2-miles-option | 
+    driver.findElement(By.id("event-distance-2-miles-option")).click();
+    // 27 | click | id=category-filter-drop-down | 
+    driver.findElement(By.id("category-filter-drop-down")).click();
+    // 28 | mouseOver | id=category-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.id("category-filter-drop-down"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 29 | mouseOut | id=category-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 30 | click | id=metacategory-arts-culture-option | 
+    driver.findElement(By.id("metacategory-arts-culture-option")).click();
+    // 31 | mouseOver | css=.gl\3Awhitespace-nowrap | 
+    {
+      WebElement element = driver.findElement(By.cssSelector(".gl\\3Awhitespace-nowrap"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 32 | click | css=.gl\3Awhitespace-nowrap | 
+    driver.findElement(By.cssSelector(".gl\\3Awhitespace-nowrap")).click();
+    // 33 | mouseOut | css=.gl\3Awhitespace-nowrap | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
   }
 }

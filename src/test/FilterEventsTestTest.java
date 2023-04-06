@@ -29,7 +29,7 @@ public class FilterEventsTestTest {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver_win32\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver_win32/chromedriver.exe");
 
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--remote-allow-origins=*");
@@ -48,69 +48,125 @@ public class FilterEventsTestTest {
     // Step # | name | target | value
     // 1 | open | / | 
     driver.get("https://www.meetup.com/");
-    // 2 | setWindowSize | 1055x800 | 
-    driver.manage().window().setSize(new Dimension(1055, 800));
-    // 3 | runScript | window.scrollTo(0,24) | 
-    js.executeScript("window.scrollTo(0,24)");
-    // 4 | runScript | window.scrollTo(0,924.7999877929688) | 
-    js.executeScript("window.scrollTo(0,924.7999877929688)");
-    // 5 | click | id=search-keyword-input | 
+    // 2 | setWindowSize | 1072x692 | 
+    driver.manage().window().setSize(new Dimension(1072, 692));
+    // 3 | runScript | window.scrollTo(0,31) | 
+    js.executeScript("window.scrollTo(0,31)");
+    // 4 | click | id=search-keyword-input | 
     driver.findElement(By.id("search-keyword-input")).click();
-    // 6 | type | id=search-keyword-input | tennis
+    // 5 | type | id=search-keyword-input | tennis
     driver.findElement(By.id("search-keyword-input")).sendKeys("tennis");
-    // 7 | click | id=location-typeahead-searchLocation | 
+    // 6 | click | id=location-typeahead-searchLocation | 
     driver.findElement(By.id("location-typeahead-searchLocation")).click();
-    // 8 | type | id=location-typeahead-searchLocation | New York
+    // 7 | type | id=location-typeahead-searchLocation | New York
     driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("New York");
-    // 9 | sendKeys | id=location-typeahead-searchLocation | ${KEY_ENTER}
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys(Keys.ENTER);
+    // 8 | mouseOver | css=.h-12 | 
+    {
+      WebElement element = driver.findElement(By.cssSelector(".h-12"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 9 | click | css=.h-12 | 
+    driver.findElement(By.cssSelector(".h-12")).click();
     // 10 | click | id=day-filter-drop-down | 
     driver.findElement(By.id("day-filter-drop-down")).click();
-    // 11 | click | id=day-filter-this-week-option | 
-    driver.findElement(By.id("day-filter-this-week-option")).click();
-    // 12 | mouseOver | id=event-type-filter-drop-down | 
+    // 11 | mouseOver | id=day-filter-starting-soon-option | 
+    {
+      WebElement element = driver.findElement(By.id("day-filter-starting-soon-option"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 12 | click | id=day-filter-starting-soon-option | 
+    driver.findElement(By.id("day-filter-starting-soon-option")).click();
+    // 13 | mouseOut | id=day-filter-starting-soon-option | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 14 | mouseOver | id=event-type-filter-drop-down | 
     {
       WebElement element = driver.findElement(By.id("event-type-filter-drop-down"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 13 | mouseOut | id=event-type-filter-drop-down | 
+    // 15 | click | id=event-type-filter-drop-down | 
+    driver.findElement(By.id("event-type-filter-drop-down")).click();
+    // 16 | mouseOut | id=event-type-filter-drop-down | 
     {
       WebElement element = driver.findElement(By.tagName("body"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element, 0, 0).perform();
     }
-    // 14 | click | css=#event-type-filter-drop-down path | 
-    driver.findElement(By.cssSelector("#event-type-filter-drop-down path")).click();
-    // 15 | click | id=event-type-online-option | 
+    // 17 | click | id=event-type-online-option | 
     driver.findElement(By.id("event-type-online-option")).click();
-    // 16 | mouseOver | id=event-distance-filter-drop-down | 
+    // 18 | mouseOver | id=event-distance-filter-drop-down | 
     {
       WebElement element = driver.findElement(By.id("event-distance-filter-drop-down"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 17 | click | id=event-distance-filter-drop-down | 
+    // 19 | click | id=event-distance-filter-drop-down | 
     driver.findElement(By.id("event-distance-filter-drop-down")).click();
-    // 18 | mouseOut | id=event-distance-filter-drop-down | 
+    // 20 | mouseOut | id=event-distance-filter-drop-down | 
     {
       WebElement element = driver.findElement(By.tagName("body"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element, 0, 0).perform();
     }
-    // 19 | click | id=event-distance-25-miles-option | 
+    // 21 | click | id=event-distance-25-miles-option | 
     driver.findElement(By.id("event-distance-25-miles-option")).click();
-    // 20 | click | id=category-filter-drop-down | 
-    driver.findElement(By.id("category-filter-drop-down")).click();
-    // 21 | click | id=metacategory-arts-culture-option | 
-    driver.findElement(By.id("metacategory-arts-culture-option")).click();
-    // 22 | click | css=.gl\3Awhitespace-nowrap | 
-    driver.findElement(By.cssSelector(".gl\\3Awhitespace-nowrap")).click();
-    // 23 | mouseOver | id=sort-by-filter-drop-down | 
+    // 22 | mouseOver | id=category-filter-drop-down | 
     {
-      WebElement element = driver.findElement(By.id("sort-by-filter-drop-down"));
+      WebElement element = driver.findElement(By.id("category-filter-drop-down"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
+    // 23 | click | id=category-filter-drop-down | 
+    driver.findElement(By.id("category-filter-drop-down")).click();
+    // 24 | mouseOut | id=category-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 25 | click | id=metacategory-career-business-option | 
+    driver.findElement(By.id("metacategory-career-business-option")).click();
+    // 26 | click | css=.gl\3Awhitespace-nowrap | 
+    driver.findElement(By.cssSelector(".gl\\3Awhitespace-nowrap")).click();
+    // 27 | mouseOver | css=#sort-by-filter-drop-down .injected-svg | 
+    {
+      WebElement element = driver.findElement(By.cssSelector("#sort-by-filter-drop-down .injected-svg"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 28 | mouseOver | id=event-distance-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.id("event-distance-filter-drop-down"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 29 | mouseOut | id=event-distance-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 30 | mouseOver | id=category-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.id("category-filter-drop-down"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    // 31 | click | id=category-filter-drop-down | 
+    driver.findElement(By.id("category-filter-drop-down")).click();
+    // 32 | mouseOut | id=category-filter-drop-down | 
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    // 33 | click | id=metacategory-new-groups-option | 
+    driver.findElement(By.id("metacategory-new-groups-option")).click();
   }
 }

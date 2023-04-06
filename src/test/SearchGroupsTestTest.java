@@ -29,7 +29,7 @@ public class SearchGroupsTestTest {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver_win32\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver_win32/chromedriver.exe");
 
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--remote-allow-origins=*");
@@ -48,47 +48,29 @@ public class SearchGroupsTestTest {
     // Step # | name | target | value
     // 1 | open | / | 
     driver.get("https://www.meetup.com/");
-    // 2 | setWindowSize | 1062x800 | 
-    driver.manage().window().setSize(new Dimension(1062, 800));
-    // 3 | click | id=search-keyword-input | 
+    // 2 | setWindowSize | 1072x693 | 
+    driver.manage().window().setSize(new Dimension(1072, 693));
+    // 3 | runScript | window.scrollTo(0,15.199999809265137) | 
+    js.executeScript("window.scrollTo(0,15.199999809265137)");
+    // 4 | click | id=search-keyword-input | 
     driver.findElement(By.id("search-keyword-input")).click();
-    // 4 | type | id=search-keyword-input | tennis
+    // 5 | type | id=search-keyword-input | tennis
     driver.findElement(By.id("search-keyword-input")).sendKeys("tennis");
-    // 5 | click | id=location-typeahead-searchLocation | 
+    // 6 | click | id=location-typeahead-searchLocation | 
     driver.findElement(By.id("location-typeahead-searchLocation")).click();
-    // 6 | type | id=location-typeahead-searchLocation | New York
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("New York");
-    // 7 | sendKeys | id=location-typeahead-searchLocation | ${KEY_ENTER}
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys(Keys.ENTER);
-    // 8 | mouseOver | id=find-groups-tab | 
-    {
-      WebElement element = driver.findElement(By.id("find-groups-tab"));
-      Actions builder = new Actions(driver);
-      builder.moveToElement(element).perform();
-    }
+    // 7 | type | id=location-typeahead-searchLocation | new york
+    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("new york");
+    // 8 | click | css=.h-12 | 
+    driver.findElement(By.cssSelector(".h-12")).click();
     // 9 | click | id=find-groups-tab | 
     driver.findElement(By.id("find-groups-tab")).click();
-    // 10 | mouseOut | id=find-groups-tab | 
-    {
-      WebElement element = driver.findElement(By.tagName("body"));
-      Actions builder = new Actions(driver);
-      builder.moveToElement(element, 0, 0).perform();
-    }
-    // 11 | mouseOver | id=group-card-in-search-results | 
-    {
-      WebElement element = driver.findElement(By.id("group-card-in-search-results"));
-      Actions builder = new Actions(driver);
-      builder.moveToElement(element).perform();
-    }
-    // 12 | mouseOut | id=group-card-in-search-results | 
-    {
-      WebElement element = driver.findElement(By.tagName("body"));
-      Actions builder = new Actions(driver);
-      builder.moveToElement(element, 0, 0).perform();
-    }
-    // 13 | click | css=.w-full:nth-child(1) > .py-3 .d1xev8qx > .object-cover | 
+    // 10 | click | css=.w-full:nth-child(1) > .py-3 .d1xev8qx > .object-cover | 
     driver.findElement(By.cssSelector(".w-full:nth-child(1) > .py-3 .d1xev8qx > .object-cover")).click();
-    // 14 | click | css=.event-share-email > img | 
+    // 11 | runScript | window.scrollTo(0,1310.4000244140625) | 
+    js.executeScript("window.scrollTo(0,1310.4000244140625)");
+    // 12 | runScript | window.scrollTo(0,571.2000122070312) | 
+    js.executeScript("window.scrollTo(0,571.2000122070312)");
+    // 13 | click | css=.event-share-email > img | 
     driver.findElement(By.cssSelector(".event-share-email > img")).click();
   }
 }

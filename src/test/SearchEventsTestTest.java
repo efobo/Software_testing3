@@ -29,7 +29,7 @@ public class SearchEventsTestTest {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver_win32\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver_win32/chromedriver.exe");
 
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--remote-allow-origins=*");
@@ -48,43 +48,27 @@ public class SearchEventsTestTest {
     // Step # | name | target | value
     // 1 | open | / | 
     driver.get("https://www.meetup.com/");
-    // 2 | setWindowSize | 1058x800 | 
-    driver.manage().window().setSize(new Dimension(1058, 800));
-    // 3 | runScript | window.scrollTo(0,1531.199951171875) | 
-    js.executeScript("window.scrollTo(0,1531.199951171875)");
-    // 4 | click | id=search-keyword-input | 
+    // 2 | setWindowSize | 1072x693 | 
+    driver.manage().window().setSize(new Dimension(1072, 693));
+    // 3 | click | id=search-keyword-input | 
     driver.findElement(By.id("search-keyword-input")).click();
-    // 5 | type | id=search-keyword-input | games
+    // 4 | type | id=search-keyword-input | games
     driver.findElement(By.id("search-keyword-input")).sendKeys("games");
-    // 6 | click | id=location-typeahead-searchLocation | 
+    // 5 | click | id=location-typeahead-searchLocation | 
     driver.findElement(By.id("location-typeahead-searchLocation")).click();
-    // 7 | type | id=location-typeahead-searchLocation | New York
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("New York");
-    // 8 | sendKeys | id=location-typeahead-searchLocation | ${KEY_ENTER}
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys(Keys.ENTER);
-    // 9 | click | css=div:nth-child(1) > .p-0 > #event-card-in-search-results .rounded-t-lg | 
-    driver.findElement(By.cssSelector("div:nth-child(1) > .p-0 > #event-card-in-search-results .rounded-t-lg")).click();
-    // 10 | runScript | window.scrollTo(0,64) | 
-    js.executeScript("window.scrollTo(0,64)");
-    // 11 | runScript | window.scrollTo(0,340) | 
-    js.executeScript("window.scrollTo(0,340)");
-    // 12 | runScript | window.scrollTo(0,592) | 
-    js.executeScript("window.scrollTo(0,592)");
-    // 13 | click | css=.ml-8:nth-child(1) .flex:nth-child(4) > .text-sm:nth-child(1) | 
-    driver.findElement(By.cssSelector(".ml-8:nth-child(1) .flex:nth-child(4) > .text-sm:nth-child(1)")).click();
-    // 14 | runScript | window.scrollTo(0,23.200000762939453) | 
-    js.executeScript("window.scrollTo(0,23.200000762939453)");
-    // 15 | runScript | window.scrollTo(0,388.79998779296875) | 
-    js.executeScript("window.scrollTo(0,388.79998779296875)");
-    // 16 | runScript | window.scrollTo(0,615.2000122070312) | 
-    js.executeScript("window.scrollTo(0,615.2000122070312)");
-    // 17 | runScript | window.scrollTo(0,266.3999938964844) | 
-    js.executeScript("window.scrollTo(0,266.3999938964844)");
-    // 18 | click | css=.px-2:nth-child(2) | 
+    // 6 | type | id=location-typeahead-searchLocation | new york
+    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("new york");
+    // 7 | click | css=.h-12 | 
+    driver.findElement(By.cssSelector(".h-12")).click();
+    // 8 | click | css=div:nth-child(1) > .p-0 > #event-card-in-search-results .text-gray7 | 
+    driver.findElement(By.cssSelector("div:nth-child(1) > .p-0 > #event-card-in-search-results .text-gray7")).click();
+    // 9 | runScript | window.scrollTo(0,242.39999389648438) | 
+    js.executeScript("window.scrollTo(0,242.39999389648438)");
+    // 10 | click | css=.px-2:nth-child(2) | 
     driver.findElement(By.cssSelector(".px-2:nth-child(2)")).click();
-    // 19 | click | css=.list-style-none:nth-child(5) .ml-2 | 
+    // 11 | click | css=.list-style-none:nth-child(5) .ml-2 | 
     driver.findElement(By.cssSelector(".list-style-none:nth-child(5) .ml-2")).click();
-    // 20 | click | css=.hidden > #close .injected-svg | 
+    // 12 | click | css=.hidden > #close .injected-svg | 
     driver.findElement(By.cssSelector(".hidden > #close .injected-svg")).click();
   }
 }

@@ -59,10 +59,7 @@ public class SignUpTestTest {
     driver.findElement(By.id("email")).sendKeys("anna@mail.ru");
     driver.findElement(By.id("new-password")).click();
     driver.findElement(By.id("new-password")).sendKeys("Kas1chka22");
-    //driver.findElement(By.cssSelector(".sm\\3Apx-0")).click();
-    //driver.findElement(By.cssSelector(".fill-current:nth-child(3)")).click();
     driver.switchTo().frame(2);
-    //driver.findElement(By.cssSelector(".recaptcha-checkbox-border")).click();
     driver.switchTo().defaultContent();
     driver.findElement(By.name("submitRegistrationButton")).click();
     js.executeScript("window.scrollTo(0,140.8000030517578)");
