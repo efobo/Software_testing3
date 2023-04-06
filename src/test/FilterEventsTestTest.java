@@ -43,8 +43,8 @@ public class FilterEventsTestTest {
     driver.quit();
   }
   @Test
-  public void filterEventsTest() {
-    // Test name: FilterEventsTest
+  public void filterEventsTest1() {
+    // Test name: FilterEventsTest (1)
     // Step # | name | target | value
     // 1 | open | / | 
     driver.get("https://www.meetup.com/");
@@ -52,121 +52,121 @@ public class FilterEventsTestTest {
     driver.manage().window().setSize(new Dimension(1072, 692));
     // 3 | runScript | window.scrollTo(0,31) | 
     js.executeScript("window.scrollTo(0,31)");
-    // 4 | click | id=search-keyword-input | 
-    driver.findElement(By.id("search-keyword-input")).click();
-    // 5 | type | id=search-keyword-input | tennis
-    driver.findElement(By.id("search-keyword-input")).sendKeys("tennis");
-    // 6 | click | id=location-typeahead-searchLocation | 
-    driver.findElement(By.id("location-typeahead-searchLocation")).click();
-    // 7 | type | id=location-typeahead-searchLocation | New York
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("New York");
-    // 8 | mouseOver | css=.h-12 | 
+    // 4 | click | xpath=//input[@id='search-keyword-input'] | 
+    driver.findElement(By.xpath("//input[@id=\'search-keyword-input\']")).click();
+    // 5 | type | xpath=//input[@id='search-keyword-input'] | tennis
+    driver.findElement(By.xpath("//input[@id=\'search-keyword-input\']")).sendKeys("tennis");
+    // 6 | click | xpath=//input[@id='location-typeahead-searchLocation'] | 
+    driver.findElement(By.xpath("//input[@id=\'location-typeahead-searchLocation\']")).click();
+    // 7 | type | xpath=//input[@id='location-typeahead-searchLocation'] | New York
+    driver.findElement(By.xpath("//input[@id=\'location-typeahead-searchLocation\']")).sendKeys("New York");
+    // 8 | mouseOver | xpath=//input[@value='Поиск'] | 
     {
-      WebElement element = driver.findElement(By.cssSelector(".h-12"));
+      WebElement element = driver.findElement(By.xpath("//input[@value=\'Поиск\']"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 9 | click | css=.h-12 | 
-    driver.findElement(By.cssSelector(".h-12")).click();
-    // 10 | click | id=day-filter-drop-down | 
-    driver.findElement(By.id("day-filter-drop-down")).click();
-    // 11 | mouseOver | id=day-filter-starting-soon-option | 
+    // 9 | click | xpath=//input[@value='Поиск'] | 
+    driver.findElement(By.xpath("//input[@value=\'Поиск\']")).click();
+    // 10 | click | xpath=//button[@id='day-filter-drop-down'] | 
+    driver.findElement(By.xpath("//button[@id=\'day-filter-drop-down\']")).click();
+    // 11 | mouseOver | xpath=//button[@id='day-filter-starting-soon-option'] | 
     {
-      WebElement element = driver.findElement(By.id("day-filter-starting-soon-option"));
+      WebElement element = driver.findElement(By.xpath("//button[@id=\'day-filter-starting-soon-option\']"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 12 | click | id=day-filter-starting-soon-option | 
-    driver.findElement(By.id("day-filter-starting-soon-option")).click();
-    // 13 | mouseOut | id=day-filter-starting-soon-option | 
+    // 12 | click | xpath=//button[@id='day-filter-starting-soon-option'] | 
+    driver.findElement(By.xpath("//button[@id=\'day-filter-starting-soon-option\']")).click();
+    // 13 | mouseOut | xpath=//button[@id='day-filter-starting-soon-option'] | 
     {
       WebElement element = driver.findElement(By.tagName("body"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element, 0, 0).perform();
     }
-    // 14 | mouseOver | id=event-type-filter-drop-down | 
+    // 14 | mouseOver | xpath=//button[@id='event-type-filter-drop-down'] | 
     {
-      WebElement element = driver.findElement(By.id("event-type-filter-drop-down"));
+      WebElement element = driver.findElement(By.xpath("//button[@id=\'event-type-filter-drop-down\']"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 15 | click | id=event-type-filter-drop-down | 
-    driver.findElement(By.id("event-type-filter-drop-down")).click();
-    // 16 | mouseOut | id=event-type-filter-drop-down | 
+    // 15 | click | xpath=//button[@id='event-type-filter-drop-down'] | 
+    driver.findElement(By.xpath("//button[@id=\'event-type-filter-drop-down\']")).click();
+    // 16 | mouseOut | xpath=//button[@id='event-type-filter-drop-down'] | 
     {
       WebElement element = driver.findElement(By.tagName("body"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element, 0, 0).perform();
     }
-    // 17 | click | id=event-type-online-option | 
-    driver.findElement(By.id("event-type-online-option")).click();
-    // 18 | mouseOver | id=event-distance-filter-drop-down | 
+    // 17 | click | xpath=//button[@id='event-type-online-option'] | 
+    driver.findElement(By.xpath("//button[@id=\'event-type-online-option\']")).click();
+    // 18 | mouseOver | xpath=//button[@id='event-distance-filter-drop-down'] | 
     {
-      WebElement element = driver.findElement(By.id("event-distance-filter-drop-down"));
+      WebElement element = driver.findElement(By.xpath("//button[@id=\'event-distance-filter-drop-down\']"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 19 | click | id=event-distance-filter-drop-down | 
-    driver.findElement(By.id("event-distance-filter-drop-down")).click();
-    // 20 | mouseOut | id=event-distance-filter-drop-down | 
+    // 19 | click | xpath=//button[@id='event-distance-filter-drop-down'] | 
+    driver.findElement(By.xpath("//button[@id=\'event-distance-filter-drop-down\']")).click();
+    // 20 | mouseOut | xpath=//button[@id='event-distance-filter-drop-down'] | 
     {
       WebElement element = driver.findElement(By.tagName("body"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element, 0, 0).perform();
     }
-    // 21 | click | id=event-distance-25-miles-option | 
-    driver.findElement(By.id("event-distance-25-miles-option")).click();
-    // 22 | mouseOver | id=category-filter-drop-down | 
+    // 21 | click | xpath=//button[@id='event-distance-25-miles-option'] | 
+    driver.findElement(By.xpath("//button[@id=\'event-distance-25-miles-option\']")).click();
+    // 22 | mouseOver | xpath=//button[@id='category-filter-drop-down'] | 
     {
-      WebElement element = driver.findElement(By.id("category-filter-drop-down"));
+      WebElement element = driver.findElement(By.xpath("//button[@id=\'category-filter-drop-down\']"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 23 | click | id=category-filter-drop-down | 
-    driver.findElement(By.id("category-filter-drop-down")).click();
-    // 24 | mouseOut | id=category-filter-drop-down | 
+    // 23 | click | xpath=//button[@id='category-filter-drop-down'] | 
+    driver.findElement(By.xpath("//button[@id=\'category-filter-drop-down\']")).click();
+    // 24 | mouseOut | xpath=//button[@id='category-filter-drop-down'] | 
     {
       WebElement element = driver.findElement(By.tagName("body"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element, 0, 0).perform();
     }
-    // 25 | click | id=metacategory-career-business-option | 
-    driver.findElement(By.id("metacategory-career-business-option")).click();
-    // 26 | click | css=.gl\3Awhitespace-nowrap | 
-    driver.findElement(By.cssSelector(".gl\\3Awhitespace-nowrap")).click();
+    // 25 | click | xpath=//button[@id='metacategory-career-business-option'] | 
+    driver.findElement(By.xpath("//button[@id=\'metacategory-career-business-option\']")).click();
+    // 26 | click | xpath=//main[@id='main']/div/div/div[2]/div/div[6]/button | 
+    driver.findElement(By.xpath("//main[@id=\'main\']/div/div/div[2]/div/div[6]/button")).click();
     // 27 | mouseOver | css=#sort-by-filter-drop-down .injected-svg | 
     {
       WebElement element = driver.findElement(By.cssSelector("#sort-by-filter-drop-down .injected-svg"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 28 | mouseOver | id=event-distance-filter-drop-down | 
+    // 28 | mouseOver | xpath=//button[@id='event-distance-filter-drop-down'] | 
     {
-      WebElement element = driver.findElement(By.id("event-distance-filter-drop-down"));
+      WebElement element = driver.findElement(By.xpath("//button[@id=\'event-distance-filter-drop-down\']"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 29 | mouseOut | id=event-distance-filter-drop-down | 
+    // 29 | mouseOut | xpath=//button[@id='event-distance-filter-drop-down'] | 
     {
       WebElement element = driver.findElement(By.tagName("body"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element, 0, 0).perform();
     }
-    // 30 | mouseOver | id=category-filter-drop-down | 
+    // 30 | mouseOver | xpath=//button[@id='category-filter-drop-down'] | 
     {
-      WebElement element = driver.findElement(By.id("category-filter-drop-down"));
+      WebElement element = driver.findElement(By.xpath("//button[@id=\'category-filter-drop-down\']"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    // 31 | click | id=category-filter-drop-down | 
-    driver.findElement(By.id("category-filter-drop-down")).click();
-    // 32 | mouseOut | id=category-filter-drop-down | 
+    // 31 | click | xpath=//button[@id='category-filter-drop-down'] | 
+    driver.findElement(By.xpath("//button[@id=\'category-filter-drop-down\']")).click();
+    // 32 | mouseOut | xpath=//button[@id='category-filter-drop-down'] | 
     {
       WebElement element = driver.findElement(By.tagName("body"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element, 0, 0).perform();
     }
-    // 33 | click | id=metacategory-new-groups-option | 
-    driver.findElement(By.id("metacategory-new-groups-option")).click();
+    // 33 | click | xpath=//button[@id='metacategory-new-groups-option'] | 
+    driver.findElement(By.xpath("//button[@id=\'metacategory-new-groups-option\']")).click();
   }
 }
