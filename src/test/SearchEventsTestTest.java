@@ -50,24 +50,24 @@ public class SearchEventsTestTest {
     driver.get("https://www.meetup.com/");
     // 2 | setWindowSize | 1072x693 | 
     driver.manage().window().setSize(new Dimension(1072, 693));
-    // 3 | click | id=search-keyword-input | 
-    driver.findElement(By.id("search-keyword-input")).click();
-    // 4 | type | id=search-keyword-input | games
-    driver.findElement(By.id("search-keyword-input")).sendKeys("games");
-    // 5 | click | id=location-typeahead-searchLocation | 
-    driver.findElement(By.id("location-typeahead-searchLocation")).click();
-    // 6 | type | id=location-typeahead-searchLocation | new york
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("new york");
-    // 7 | click | css=.h-12 | 
-    driver.findElement(By.cssSelector(".h-12")).click();
-    // 8 | click | css=div:nth-child(1) > .p-0 > #event-card-in-search-results .text-gray7 | 
-    driver.findElement(By.cssSelector("div:nth-child(1) > .p-0 > #event-card-in-search-results .text-gray7")).click();
+    // 3 | click | xpath=//input[@id='search-keyword-input'] | 
+    driver.findElement(By.xpath("//input[@id=\'search-keyword-input\']")).click();
+    // 4 | type | xpath=//input[@id='search-keyword-input'] | games
+    driver.findElement(By.xpath("//input[@id=\'search-keyword-input\']")).sendKeys("games");
+    // 5 | click | xpath=//input[@id='location-typeahead-searchLocation'] | 
+    driver.findElement(By.xpath("//input[@id=\'location-typeahead-searchLocation\']")).click();
+    // 6 | type | xpath=//input[@id='location-typeahead-searchLocation'] | new york
+    driver.findElement(By.xpath("//input[@id=\'location-typeahead-searchLocation\']")).sendKeys("new york");
+    // 7 | click | xpath=//div[@id='page']/div[2]/main/div/div[4]/div/form/div[2]/input | 
+    driver.findElement(By.xpath("//div[@id=\'page\']/div[2]/main/div/div[4]/div/form/div[2]/input")).click();
+    // 8 | click | xpath=//a[@id='event-card-in-search-results']/div/div/div[2]/h2 | 
+    driver.findElement(By.xpath("//a[@id=\'event-card-in-search-results\']/div/div/div[2]/h2")).click();
     // 9 | runScript | window.scrollTo(0,242.39999389648438) | 
     js.executeScript("window.scrollTo(0,242.39999389648438)");
-    // 10 | click | css=.px-2:nth-child(2) | 
-    driver.findElement(By.cssSelector(".px-2:nth-child(2)")).click();
-    // 11 | click | css=.list-style-none:nth-child(5) .ml-2 | 
-    driver.findElement(By.cssSelector(".list-style-none:nth-child(5) .ml-2")).click();
+    // 10 | click | xpath=//main[@id='main']/div[4]/div/div/div[2]/div/div[2]/div[2]/div/button/div/div[2] | 
+    driver.findElement(By.xpath("//main[@id=\'main\']/div[4]/div/div/div[2]/div/div[2]/div[2]/div/button/div/div[2]")).click();
+    // 11 | click | xpath=//div[@id='modal']/div/div/div/div/ul/li[5]/button/div/div[2] | 
+    driver.findElement(By.xpath("//div[@id=\'modal\']/div/div/div/div/ul/li[5]/button/div/div[2]")).click();
     // 12 | click | css=.hidden > #close .injected-svg | 
     driver.findElement(By.cssSelector(".hidden > #close .injected-svg")).click();
   }

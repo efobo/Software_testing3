@@ -48,20 +48,28 @@ public class SignUpTestTest {
   public void signUpTest() {
     driver.get("https://www.meetup.com/");
     driver.manage().window().setSize(new Dimension(1053, 799));
-    driver.findElement(By.id("register-link")).click();
+    //driver.findElement(By.id("register-link")).click();
+    driver.findElement(By.xpath("//a[@id='register-link']")).click();
     {
       WebElement element = driver.findElement(By.id("email-register"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
     }
-    driver.findElement(By.id("email-register")).click();
-    driver.findElement(By.id("name")).sendKeys("Anna");
-    driver.findElement(By.id("email")).sendKeys("anna@mail.ru");
-    driver.findElement(By.id("new-password")).click();
-    driver.findElement(By.id("new-password")).sendKeys("Kas1chka22");
+    //driver.findElement(By.id("email-register")).click();
+    //driver.findElement(By.id("name")).sendKeys("Anna");
+    //driver.findElement(By.id("email")).sendKeys("anna@mail.ru");
+    //driver.findElement(By.id("new-password")).click();
+    //driver.findElement(By.id("new-password")).sendKeys("Kas1chka22");
+    driver.findElement(By.xpath("//button[@id='email-register']")).click();
+    driver.findElement(By.xpath("//input[@id='name']")).sendKeys("Anna");
+    driver.findElement(By.xpath("//input[@id='email']")).sendKeys("anna@mail.ru");
+    driver.findElement(By.xpath("//input[@id='new-password']")).click();
+
+    driver.findElement(By.xpath("//input[@id='new-password']")).sendKeys("Kas1chka223");
     driver.switchTo().frame(2);
     driver.switchTo().defaultContent();
-    driver.findElement(By.name("submitRegistrationButton")).click();
+    //driver.findElement(By.name("submitRegistrationButton")).click();
+    driver.findElement(By.xpath("//button[@name='submitRegistrationButton']")).click();
     js.executeScript("window.scrollTo(0,140.8000030517578)");
   }
 }

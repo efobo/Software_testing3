@@ -52,25 +52,25 @@ public class SearchGroupsTestTest {
     driver.manage().window().setSize(new Dimension(1072, 693));
     // 3 | runScript | window.scrollTo(0,15.199999809265137) | 
     js.executeScript("window.scrollTo(0,15.199999809265137)");
-    // 4 | click | id=search-keyword-input | 
-    driver.findElement(By.id("search-keyword-input")).click();
-    // 5 | type | id=search-keyword-input | tennis
-    driver.findElement(By.id("search-keyword-input")).sendKeys("tennis");
-    // 6 | click | id=location-typeahead-searchLocation | 
-    driver.findElement(By.id("location-typeahead-searchLocation")).click();
-    // 7 | type | id=location-typeahead-searchLocation | new york
-    driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys("new york");
-    // 8 | click | css=.h-12 | 
-    driver.findElement(By.cssSelector(".h-12")).click();
-    // 9 | click | id=find-groups-tab | 
-    driver.findElement(By.id("find-groups-tab")).click();
-    // 10 | click | css=.w-full:nth-child(1) > .py-3 .d1xev8qx > .object-cover | 
-    driver.findElement(By.cssSelector(".w-full:nth-child(1) > .py-3 .d1xev8qx > .object-cover")).click();
+    // 4 | click | xpath=//input[@id='search-keyword-input'] | 
+    driver.findElement(By.xpath("//input[@id=\'search-keyword-input\']")).click();
+    // 5 | type | xpath=//input[@id='search-keyword-input'] | tennis
+    driver.findElement(By.xpath("//input[@id=\'search-keyword-input\']")).sendKeys("tennis");
+    // 6 | click | xpath=//input[@id='location-typeahead-searchLocation'] | 
+    driver.findElement(By.xpath("//input[@id=\'location-typeahead-searchLocation\']")).click();
+    // 7 | type | xpath=//input[@id='location-typeahead-searchLocation'] | new york
+    driver.findElement(By.xpath("//input[@id=\'location-typeahead-searchLocation\']")).sendKeys("new york");
+    // 8 | click | xpath=//div[@id='page']/div[2]/main/div/div[4]/div/form/div[2]/input | 
+    driver.findElement(By.xpath("//div[@id=\'page\']/div[2]/main/div/div[4]/div/form/div[2]/input")).click();
+    // 9 | click | xpath=//button[@id='find-groups-tab'] | 
+    driver.findElement(By.xpath("//button[@id=\'find-groups-tab\']")).click();
+    // 10 | click | xpath=//a[@id='group-card-in-search-results']/div/img | 
+    driver.findElement(By.xpath("//a[@id=\'group-card-in-search-results\']/div/img")).click();
     // 11 | runScript | window.scrollTo(0,1310.4000244140625) | 
     js.executeScript("window.scrollTo(0,1310.4000244140625)");
     // 12 | runScript | window.scrollTo(0,571.2000122070312) | 
     js.executeScript("window.scrollTo(0,571.2000122070312)");
-    // 13 | click | css=.event-share-email > img | 
-    driver.findElement(By.cssSelector(".event-share-email > img")).click();
+    // 13 | click | xpath=//main[@id='mupMain']/div/div/section/div/div[2]/div/div[3]/div/div[5]/button/img | 
+    driver.findElement(By.xpath("//main[@id=\'mupMain\']/div/div/section/div/div[2]/div/div[3]/div/div[5]/button/img")).click();
   }
 }
