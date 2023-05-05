@@ -61,13 +61,14 @@ public class FilterEventsTestTest {
     // 7 | type | xpath=//input[@id='location-typeahead-searchLocation'] | New York
     driver.findElement(By.xpath("//input[@id=\'location-typeahead-searchLocation\']")).sendKeys("New York");
     // 8 | mouseOver | xpath=//input[@value='Поиск'] | 
-    {
+    /*{
       WebElement element = driver.findElement(By.xpath("//input[@value=\'Поиск\']"));
       Actions builder = new Actions(driver);
       builder.moveToElement(element).perform();
-    }
+    }*/
     // 9 | click | xpath=//input[@value='Поиск'] | 
-    driver.findElement(By.xpath("//input[@value=\'Поиск\']")).click();
+    //driver.findElement(By.xpath("//input[@value=\'Поиск\']")).click();
+    driver.findElement(By.xpath("//div[@id='page']/div[2]/main/div/div[4]/div/form/div[2]/input")).click();
     // 10 | click | xpath=//button[@id='day-filter-drop-down'] | 
     driver.findElement(By.xpath("//button[@id=\'day-filter-drop-down\']")).click();
     // 11 | mouseOver | xpath=//button[@id='day-filter-starting-soon-option'] | 
